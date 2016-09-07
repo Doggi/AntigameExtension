@@ -1,3 +1,4 @@
+
 /**
  * @function
  * @property {object} jQuery plugin which runs handler function once specified element is inserted into the DOM
