@@ -17,6 +17,8 @@
 // @grant       GM_setClipboard
 // @grant       GM_xmlhttpRequest
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
+// @require     https://raw.githubusercontent.com/Doggi/AntigameExtension/master/jquery.waitUntilExists.js
+// @require     https://raw.githubusercontent.com/Doggi/AntigameExtension/master/js_number_extension.js
 // ==/UserScript==
 console.log("AntigameExtension starting");
 
@@ -51,9 +53,9 @@ function AntiGameExtension() {
         return $("meta[name=" + name + "]").attr("content");
     };
 
-    this.addMenu = function(name){ console.log($('#ago_panel_wrapper'));
-        $('#ago_panel_wrapper').append(
-            '<div id="ago_ext_panel_' + name + '"' +
+    this.addMenu = function(name){
+        $('#ago_panel .ago_panel_wrapper').append(
+            '<div id="ago_ext_panel_' + name + '">' +
                 '<div class="ago_panel_tab">'+ name + 
                     '<span class="ago_panel_tab_info">info</span>' +
                 '</div>'+
@@ -61,6 +63,7 @@ function AntiGameExtension() {
                 '<div class="ago_panel_tab_content">content</div>' +
                 '<div class="ago_panel_tab_footer">foot</div>' +
         '<div>');
+        $("#ago_ext_panel_" + name + " .ago_panel_tab").toggleClass("ago_panel_tab_open");
     };
             
 
